@@ -1,0 +1,72 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}{{ 'dashboard.links.title'|trans }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ 'dashboard.links.title'|trans }}</h4>
+                    <p class="card-description mb-4">
+                        {{ 'dashboard.links.subtitle'|trans }}
+                    </p>
+                    {% if venues is empty %}
+                        <p>{{ 'dashboard.links.empty'|trans }}</p>
+                    {% else %}
+                        <ul class="list-arrow">
+                            {% for venue in venues %}
+                                <div class="mb-5">
+                                    <li>
+                                        <span class="fw-bold text-primary">{{ venue.name }}</span>: 
+                                        <a onclick="copyContent('link-venue-{{ venue.id }}'); return false;" id="link-venue-{{ venue.id }}" class="text-secondary" role="button">
+                                            <span>{{ venue.link }}</span>
+                                            <i class="ti-files text-primary btn btn-icon btn-sm"></i>
+                                        </a><span class="copied-msg badge badge-success">{{ 'link.copied' | trans }}</span>
+                                    </li>
+
+                                    <div style="margin-left: 40px;">
+                                        {% for event in venue.events %}
+                                            <li>
+                                                <span class="fw-bold">{{ event.name }}</span>: 
+                                                <a onclick="copyContent('link-event-{{ event.id }}'); return false;" id="link-event-{{ event.id }}" class="text-secondary" role="button">
+                                                    <span>{{ event.link }}</span>
+                                                    <i class="ti-files text-primary btn btn-icon btn-sm"></i>
+                                                </a><span class="copied-msg badge badge-success">{{ 'link.copied' | trans }}</span>
+                                            </li>
+                                            {# Not list Dates
+                                                <div style="margin-left: 40px;">
+                                                    {% for date in event.dates %}
+                                                        <li><span class="text-info">{{ date.date|date('d M Y', false) }}</span>: <a href="{{ date.link }}" class="text-secondary">{{ date.link }}</a> <a><i class="ti-files text-primary btn btn-icon btn-sm"></i></a></li>
+                                                    {% endfor %}
+                                                </div>
+                                            #}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+      
+      const copyContent = async (input) => {
+        try {
+          let text = $('#'+input).children('span').text();
+          await navigator.clipboard.writeText(text);
+          $('#'+input).closest('li').find('.copied-msg').fadeIn('fast', function() {
+            $(this).delay(2000).fadeOut('slow');
+          });
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+        }
+      }
+    </script>
+{% endblock %}

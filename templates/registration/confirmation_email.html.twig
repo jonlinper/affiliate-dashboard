@@ -1,0 +1,13 @@
+<img src="{{ absolute_url(asset('images/logo.png')) }}" alt="TheBrand Affidash" />
+
+<br /><br /><h1>{{ 'preuser.verify.email.hi'|trans }}</h1>
+
+<p>
+    <br />{{ 'preuser.verify.email.click'|trans }}
+    <br /><br /><a href="{{ signedUrl|raw }}">{{ 'preuser.verify.email.link'|trans }}</a>.
+    <br />{{ 'preuser.verify.email.expiry'|trans }} {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+</p>
+
+<p>
+    <br />{{ 'preuser.verify.email.farewell'|trans }}
+</p>

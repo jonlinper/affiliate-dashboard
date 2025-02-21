@@ -1,0 +1,70 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}{% trans %}Users{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{% trans %}Users{% endtrans %}</h4>
+                    <p class="card-description"></p>
+                    <div class="table-responsive pt-3">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        {% trans %}ID{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Slug{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Email{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Name{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Surname{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Country{% endtrans %}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                    <tr>
+                                        <td>
+                                            {{ user.id }}
+                                        </td>
+                                        <td>
+                                            {{ user.slug }} <a href="{{ path('app_dashboard', {'_switch_user': user.email}) }}"><i class="ti-arrows-horizontal text-primary btn btn-icon btn-sm"></i></a> | <a href="{{ path('app_dashboard_users_view', {userId: user.id}) }}"><i class="ti-eye text-primary btn btn-icon btn-sm"></i></a>
+                                        </td>
+                                        <td>
+                                            {{ user.email }}
+                                        </td>
+                                        <td>
+                                            {{ user.name }}
+                                        </td>
+                                        <td>
+                                            {{ user.surname }}
+                                        </td>
+                                        <td>
+                                            {{ user.country }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <div class="mt-4">
+                            {{ pagerfanta(users) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

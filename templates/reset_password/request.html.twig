@@ -1,0 +1,29 @@
+{% extends 'preuser.html.twig' %}
+
+{% block title %}{{ 'preuser.reset.title'|trans }}{% endblock %}
+
+{% block content %}
+    <h4>{{ 'preuser.reset.title'|trans }}</h4>
+    <h6 class="fw-light">{{ 'preuser.reset.request.enter'|trans }}</h6>
+
+    {% for flash_error in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    {{ form_start(requestForm, {'attr': {'class': 'pt-3'}}) }}
+        <div class="form-group mt-3">
+            {{ form_errors(requestForm.email) }}
+            {{ form_widget(requestForm.email, {
+                'attr': {
+                    'placeholder': 'Email',
+                    'class': 'form-control form-control-lg'
+                }
+            }) }}
+        </div>
+
+        <div class="mt-3">
+            <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">{{ 'preuser.reset.request.submit'|trans }}</button>
+        </div>
+        <div class="text-center mt-4 fw-light">{{ 'preuser.reset.register.question'|trans }} <a href="{{ path('app_register') }}" class="text-primary">{{ 'preuser.reset.register.create'|trans }}</a></div>
+    {{ form_end(requestForm) }}
+{% endblock %}

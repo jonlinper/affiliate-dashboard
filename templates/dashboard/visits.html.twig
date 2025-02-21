@@ -1,0 +1,82 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}{% trans %}Visits{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{% trans %}Visits{% endtrans %}</h4>
+                    <p class="card-description">
+                        {% trans %}Navigations over your links{% endtrans %}:
+                    </p>
+                    <div class="table-responsive pt-3">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        {% trans %}ID{% endtrans %}
+                                    </th>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <th>
+                                            {% trans %}User{% endtrans %}
+                                        </th>
+                                    {% endif %}
+                                    <th>
+                                        {% trans %}Date{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Referer{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Redirect-to{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Source{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Medium{% endtrans %}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for visit in visits %}
+                                    <tr>
+                                        <td>
+                                            {{ visit.id }}
+                                        </td>
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <td>
+                                                {{ visit.user.slug }}
+                                            </td>
+                                        {% endif %}
+                                        <td>
+                                            {{ visit.createdAt|date('dMY - H:i', false) }}
+                                        </td>
+                                        <td>
+                                            {{ visit.referer }}
+                                        </td>
+                                        <td>
+                                            {{ visit.redirectTo }}
+                                        </td>
+                                        <td>
+                                            {{ visit.source }}
+                                        </td>
+                                        <td>
+                                            {{ visit.medium }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <div class="mt-4">
+                            {{ pagerfanta(visits) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

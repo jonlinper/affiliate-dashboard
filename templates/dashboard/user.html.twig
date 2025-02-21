@@ -1,0 +1,129 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}{% trans %}User{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-sm-flex justify-content-between align-items-start">
+                        <div>
+                            <h4 class="card-title">{% trans %}User{% endtrans %} #{{ viewUser.id }}</h4>
+                            <p class="card-subtitle card-subtitle-dash">{% trans %}User details{% endtrans %}:</p>
+                        </div>
+                        <div>
+                            {% if viewUser.isBanned %}
+                                <a href="{{ path('app_dashboard_users_unban', {userId: viewUser.id}) }}" class="btn btn-primary btn-icon-text" type="button"><i class="mdi mdi-account-check btn-icon-prepend"></i>{% trans %}Unban user{% endtrans %}</a>
+                            {% else %}
+                                <a href="{{ path('app_dashboard_users_ban', {userId: viewUser.id}) }}" class="btn btn-primary btn-icon-text" type="button"><i class="mdi mdi-account-off btn-icon-prepend"></i>{% trans %}Ban user{% endtrans %}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div>
+                        <blockquote class="blockquote">
+                            <h6>
+                                {% trans %}ID{% endtrans %}:
+                                <small class="text-muted">
+                                    {{ viewUser.id }}
+                                </small>
+                            </h6>
+                            <h6>
+                                {% trans %}Slug{% endtrans %}:
+                                <small class="text-muted">
+                                    {{ viewUser.slug }}
+                                </small>
+                            </h6>
+                            <h6>
+                                {% trans %}Email{% endtrans %}:
+                                <small class="text-muted">
+                                    {{ viewUser.email }}
+                                </small>
+                                {% if viewUser.isVerified %}
+                                    <div class="badge badge-outline-success">{% trans %}Verified{% endtrans %}</div>
+                                {% else %}
+                                    <div class="badge badge-outline-warning">{% trans %}Not verified{% endtrans %}</div>
+                                {% endif %}
+                            </h6>
+                            <h6>
+                                {% trans %}Signup date{% endtrans %}:
+                                <small class="text-muted">
+                                    {{ viewUser.signupDate|date('dMY - H:i', false) }}
+                                </small>
+                            </h6>
+                            <h6>
+                                {% trans %}Status{% endtrans %}:
+                                {% if viewUser.isBanned %}
+                                    <div class="badge badge-outline-danger">{% trans %}Banned{% endtrans %}</div>
+                                    {% trans %}by{% endtrans %} <small class="text-muted">{{ viewUser.bannedBy.name }}</small> {% trans %}on{% endtrans %} <small class="text-muted">{{ viewUser.bannedDate|date('dMY - H:i', false) }}</small>
+                                {% else %}
+                                    <div class="badge badge-outline-success">{% trans %}Not banned{% endtrans %}</div>
+                                {% endif %}
+                            </h6>
+                        </blockquote>
+
+                        <blockquote class="blockquote">
+                            <h6>
+                                {% trans %}Name{% endtrans %}:
+                                <small class="text-muted">
+                                    {{ viewUser.name }}
+                                </small>
+                            </h6>
+                            <h6>
+                                {% trans %}Surname{% endtrans %}:
+                                <small class="text-muted">
+                                    {{ viewUser.surname }}
+                                </small>
+                            </h6>
+                            <h6>
+                                {% trans %}Passport{% endtrans %}:
+                                <small class="text-muted">
+                                    {{ viewUser.passport }}
+                                </small>
+                            </h6>
+                            <h6>
+                                Instagram:
+                                <small class="text-muted">
+                                    {{ viewUser.instagram }}
+                                </small>
+                            </h6>
+                            <h6>
+                                Twitter:
+                                <small class="text-muted">
+                                    {{ viewUser.twitter }}
+                                </small>
+                            </h6>
+                            <h6>
+                                Tiktok:
+                                <small class="text-muted">
+                                    {{ viewUser.tiktok }}
+                                </small>
+                            </h6>
+                        </blockquote>
+
+                        <blockquote class="blockquote">
+                            <h6>
+                                {% trans %}Address{% endtrans %}:
+                                <small class="text-muted">
+                                    {{ viewUser.address }}
+                                </small>
+                            </h6>
+                            <h6>
+                                {% trans %}City{% endtrans %}:
+                                <small class="text-muted">
+                                    {{ viewUser.city }}
+                                </small>
+                            </h6>
+                            <h6>
+                                {% trans %}Country{% endtrans %}:
+                                <small class="text-muted">
+                                    {{ viewUser.country }}
+                                </small>
+                            </h6>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

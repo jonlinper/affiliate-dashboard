@@ -1,0 +1,155 @@
+{% extends 'preuser.html.twig' %}
+
+{% block title %}{{ 'preuser.register.title'|trans }}{% endblock %}
+
+{% block content %}
+    <h4>{{ 'preuser.register.hi'|trans }}</h4>
+    <h6 class="fw-light">{{ 'preuser.register.tocontinue'|trans }}</h6>
+
+    {{ form_start(registrationForm, {'attr': {'class': 'pt-3'}}) }}
+        <div class="form-group mt-3">
+            {{ form_errors(registrationForm.name) }}
+            {{ form_widget(registrationForm.name, {
+                'attr': {
+                    'placeholder': 'Name',
+                    'class': 'form-control form-control-lg'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.surname) }}
+            {{ form_widget(registrationForm.surname, {
+                'attr': {
+                    'placeholder': 'Surname',
+                    'class': 'form-control form-control-lg'
+                }
+            }) }}
+        </div>
+
+        <div class="form-group mt-5">
+            {{ form_errors(registrationForm.email) }}
+            {{ form_widget(registrationForm.email, {
+                'attr': {
+                    'placeholder': 'Email',
+                    'class': 'form-control form-control-lg'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.plainPassword.first) }}
+            {{ form_widget(registrationForm.plainPassword.first, {
+                'attr': {
+                    'placeholder': 'Password',
+                    'class': 'form-control form-control-lg'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.plainPassword.second) }}
+            {{ form_widget(registrationForm.plainPassword.second, {
+                'attr': {
+                    'placeholder': 'Repeat Password',
+                    'class': 'form-control form-control-lg'
+                }
+            }) }}
+        </div>
+
+        <div class="form-group mt-5">
+            {{ form_errors(registrationForm.address) }}
+            {{ form_widget(registrationForm.address, {
+                'attr': {
+                    'placeholder': 'Address',
+                    'class': 'form-control form-control-lg'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.city) }}
+            {{ form_widget(registrationForm.city, {
+                'attr': {
+                    'placeholder': 'City',
+                    'class': 'form-control form-control-lg'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.country) }}
+            {{ form_widget(registrationForm.country, {
+                'attr': {
+                    'placeholder': 'Country',
+                    'class': 'form-control form-control-lg'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.passport) }}
+            {{ form_widget(registrationForm.passport, {
+                'attr': {
+                    'placeholder': 'ID / Passport',
+                    'class': 'form-control form-control-lg'
+                }
+            }) }}
+        </div>
+
+        <div class="form-group mt-5">
+            {{ form_errors(registrationForm.instagram) }}
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text form-control-lg">@</span>
+                </div>
+                {{ form_widget(registrationForm.instagram, {
+                    'attr': {
+                        'placeholder': 'Instagram',
+                        'class': 'form-control form-control-lg'
+                    }
+                }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.twitter) }}
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text form-control-lg">@</span>
+                </div>
+                {{ form_widget(registrationForm.twitter, {
+                    'attr': {
+                        'placeholder': 'Twitter',
+                        'class': 'form-control form-control-lg'
+                    }
+                }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.tiktok) }}
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text form-control-lg">@</span>
+                </div>
+                {{ form_widget(registrationForm.tiktok, {
+                    'attr': {
+                        'placeholder': 'Tiktok',
+                        'class': 'form-control form-control-lg'
+                    }
+                }) }}
+            </div>
+        </div>
+
+        <div class="my-2 d-flex justify-content-between align-items-center">
+            <div class="form-check">
+                {{ form_errors(registrationForm.agreeTerms) }}
+                <label class="form-check-label text-muted">
+                    {{ form_widget(registrationForm.agreeTerms, {
+                        'attr': {
+                            'class': 'form-check-input'
+                        }
+                    }) }}
+                    {{ 'preuser.register.terms'|trans }}
+                </label>
+            </div>
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">{{ 'preuser.register.submit'|trans }}</button>
+        </div>
+        <div class="text-center mt-4 fw-light">{{ 'preuser.register.login.question'|trans }} <a href="{{ path('app_login') }}" class="text-primary">{{ 'preuser.register.login.login'|trans }}</a></div>
+    {{ form_end(registrationForm) }}
+{% endblock %}

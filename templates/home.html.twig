@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Info{% endblock %}
+
+{% block body %}
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="main-panel w-100 documentation">
+                <div class="content-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 pt-3">
+                                <img src="{{ asset('images/logo.png') }}" alt="TheBrand Affidash" class="home-logo" />
+                            </div>
+                            <div class="col-6 pt-3 text-end">
+                                <a class="btn btn-primary" href="{{ path('app_login') }}"><i class="ti-user me-2"></i>{% trans %}Sign in{% endtrans %}</a>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                {% block content %}{% endblock %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 pt-5 mb-5">
+                                <a class="btn btn-primary" href="{{ path('app_register') }}"><i class="ti-plus me-2"></i>{% trans %}Create an account{% endtrans %}</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-5 text-end">
+                                <a class="btn btn-link" href="{{ path('app_home', {_locale: 'en'}) }}">English</a> |
+                                <a class="btn btn-link" href="{{ path('app_home', {_locale: 'es'}) }}">Español</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

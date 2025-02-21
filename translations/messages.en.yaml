@@ -1,0 +1,102 @@
+preuser:
+  verify:
+    title: Register
+    sent: We have just sent you an email containing a link that you have to click to verify your email.
+    spam: Please, check your spam folder.
+    done:
+      success: Your email has been verified successfully.
+      question: Ready to get started?
+      login: Sign in
+    retry:
+      question: Haven't received any email?
+      send: Send again
+    email:
+      subject: Affidash Thebrand - Verify Email
+      hi: Hello! Welcome to the Thebrand Affidash Program.
+      click: Please click the following link to verify your email.
+      link: VERIFY EMAIL
+      expiry: This link will expire in
+      farewell: Thanks!
+  reset:
+    title: Reset your password
+    request:
+      enter: Enter your email address and we will send you a link to reset your password.
+      submit: CONTINUE
+    sent: If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
+    expiry: This link will expire in
+    spam: Please, check your spam folder.
+    success: Your password has been updated
+    retry:
+      question: Haven't received any email?
+      send: Send again
+    register:
+      question: Don't have an account?
+      create: Create
+    email:
+      subject: Affidash Thebrand - Password reset
+      hi: Hello!
+      click: To reset your password, please visit the following link.
+      farewell: Thanks!
+    update:
+      enter: Enter your new password to update your account.
+      submit: UPDATE
+  login:
+    title: Sign in
+    hi: Hello! let's get started
+    tocontinue: Sign in to continue.
+    submit: SIGN IN
+    remember: Keep me signed in
+    reset: Forgot password?
+    register:
+      question: Don't have an account?
+      create: Create
+    form:
+      email: Email
+      password: Password
+  register:
+    title: Create account
+    hi: Hello! let's get started
+    tocontinue: Create an account to continue.
+    terms: Agree Terms
+    submit: CREATE ACCOUNT
+    login:
+      question: Already have an account?
+      login: Sign in
+dashboard:
+  header:
+    title: Hello
+    subtitle: Access all the information you need
+    banned: Your account has been banned. Your sales won't be applied.
+    adminagain: Be Admin again
+    usermenu:
+      profile: My Profile
+      logout: Sign Out
+  footer:
+    help: Need help?
+  sidebar:
+    index: Dashboard
+    links: Links
+    visits: Visits
+    sales: Sales
+    users: Users
+  index:
+    summary:
+      today:
+        title: Today
+        visits: Visits
+        sales: Sales
+      total:
+        visits: Total Visits
+        sales: Total Sales
+      average:
+        visits: Visits per Day
+        sales: Sales per Day
+  links:
+    title: Links
+    subtitle: These are your available links, that you can share with friends and followers on social networks. When somebody buys a ticket through your links, it will appear in "Sales" section, including your earnings.
+    empty: There is no available links
+profile:
+  edit:
+    success: Your changes have been saved
+
+link.copied: Copied to clipboard

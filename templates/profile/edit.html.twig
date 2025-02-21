@@ -1,0 +1,190 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}{% trans %}My Profile{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{% trans %}My Profile{% endtrans %}</h4>
+                    {{ form_start(editForm, {'attr': {'class': 'pt-3'}}) }}
+                        <p class="card-description">{% trans %}Account info{% endtrans %}</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">{% trans %}Email{% endtrans %}</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control form-control-lg" disabled value="{{ app.user.email }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">{% trans %}Password{% endtrans %}</label>
+                                    <div class="col-sm-9">
+                                        <span class="input-group-append">
+                                            <a href="{{ path('app_profile_password') }}" class="file-upload-browse btn btn-primary" type="button">{% trans %}Change{% endtrans %}</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-description">{% trans %}Personal info{% endtrans %}</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    {{ form_errors(editForm.name) }}
+                                    <label class="col-sm-3 col-form-label">{{ form_label(editForm.name) }}</label>
+                                    <div class="col-sm-9">
+                                        {{ form_widget(editForm.name, {
+                                            'attr': {
+                                                'class': 'form-control form-control-lg'
+                                            }
+                                        }) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    {{ form_errors(editForm.surname) }}
+                                    <label class="col-sm-3 col-form-label">{{ form_label(editForm.surname) }}</label>
+                                    <div class="col-sm-9">
+                                        {{ form_widget(editForm.surname, {
+                                            'attr': {
+                                                'class': 'form-control form-control-lg'
+                                            }
+                                        }) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    {{ form_errors(editForm.passport) }}
+                                    <label class="col-sm-3 col-form-label">{{ form_label(editForm.passport, 'ID / Passport') }}</label>
+                                    <div class="col-sm-9">
+                                        {{ form_widget(editForm.passport, {
+                                            'attr': {
+                                                'class': 'form-control form-control-lg'
+                                            }
+                                        }) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    {{ form_errors(editForm.instagram) }}
+                                    <label class="col-sm-3 col-form-label">{{ form_label(editForm.instagram) }}</label>
+                                    <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text form-control-lg">@</span>
+                                        </div>
+                                            {{ form_widget(editForm.instagram, {
+                                                'attr': {
+                                                    'class': 'form-control form-control-lg'
+                                                }
+                                            }) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    {{ form_errors(editForm.twitter) }}
+                                    <label class="col-sm-3 col-form-label">{{ form_label(editForm.twitter) }}</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text form-control-lg">@</span>
+                                            </div>
+                                            {{ form_widget(editForm.twitter, {
+                                                'attr': {
+                                                    'class': 'form-control form-control-lg'
+                                                }
+                                            }) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    {{ form_errors(editForm.tiktok) }}
+                                    <label class="col-sm-3 col-form-label">{{ form_label(editForm.tiktok) }}</label>
+                                    <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text form-control-lg">@</span>
+                                        </div>
+                                            {{ form_widget(editForm.tiktok, {
+                                                'attr': {
+                                                    'class': 'form-control form-control-lg'
+                                                }
+                                            }) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-description">{% trans %}Residence{% endtrans %}</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    {{ form_errors(editForm.address) }}
+                                    <label class="col-sm-3 col-form-label">{{ form_label(editForm.address) }}</label>
+                                    <div class="col-sm-9">
+                                    {{ form_widget(editForm.address, {
+                                        'attr': {
+                                            'placeholder': 'Address',
+                                            'class': 'form-control form-control-lg'
+                                        }
+                                    }) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    {{ form_errors(editForm.city) }}
+                                    <label class="col-sm-3 col-form-label">{{ form_label(editForm.city) }}</label>
+                                    <div class="col-sm-9">
+                                    {{ form_widget(editForm.city, {
+                                        'attr': {
+                                            'placeholder': 'City',
+                                            'class': 'form-control form-control-lg'
+                                        }
+                                    }) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    {{ form_errors(editForm.country) }}
+                                    <label class="col-sm-3 col-form-label">{{ form_label(editForm.country) }}</label>
+                                    <div class="col-sm-9">
+                                    {{ form_widget(editForm.country, {
+                                        'attr': {
+                                            'placeholder': 'Country',
+                                            'class': 'form-control form-control-lg'
+                                        }
+                                    }) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary me-2">{% trans %}Update{% endtrans %}</button>
+                            </div>
+                        </div>
+                    {{ form_end(editForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

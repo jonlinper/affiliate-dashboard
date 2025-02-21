@@ -1,0 +1,88 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}{% trans %}Sales{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{% trans %}Sales{% endtrans %}</h4>
+                    <p class="card-description">
+                        {% trans %}Conversions of your links{% endtrans %}:
+                    </p>
+                    <div class="table-responsive pt-3">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        {% trans %}Reference{% endtrans %}
+                                    </th>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <th>
+                                            {% trans %}User{% endtrans %}
+                                        </th>
+                                    {% endif %}
+                                    <th>
+                                        {% trans %}Purchased-on{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Visit-ID{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Tickets{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Venue{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Event{% endtrans %}
+                                    </th>
+                                    <th>
+                                        {% trans %}Date{% endtrans %}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for sale in sales %}
+                                    <tr>
+                                        <td>
+                                            {{ sale.reference }}
+                                        </td>
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <td>
+                                                {{ sale.visit.user.slug }}
+                                            </td>
+                                        {% endif %}
+                                        <td>
+                                            {{ sale.buyDate|date('dMY - H:i', false) }}
+                                        </td>
+                                        <td>
+                                            {{ sale.visit.id }}
+                                        </td>
+                                        <td>
+                                            {{ sale.numTickets }}
+                                        </td>
+                                        <td>
+                                            {{ sale.venueName }}
+                                        </td>
+                                        <td>
+                                            {{ sale.eventName }}
+                                        </td>
+                                        <td>
+                                            {{ sale.date|date('dMY', false) }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <div class="mt-4">
+                            {{ pagerfanta(sales) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

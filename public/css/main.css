@@ -1,0 +1,35 @@
+.flash-msg {
+    position: fixed;
+    z-index: 10000;
+    width: 50%;
+    top: 0;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0);
+}
+
+.form-control {
+    appearance: auto;
+}
+
+.sidebar-icon-only #sidebar .need-help {
+    display: none;
+}
+
+.status-summary-ight-white {
+    color: $white-6;
+}
+
+.copied-msg {
+    display: none;
+}
+
+.navbar .navbar-brand-wrapper .navbar-brand img {
+    height: auto;
+}
+
+@media (max-width: 767.98px) {
+    .home-logo {
+        width: 100%;
+    }
+}

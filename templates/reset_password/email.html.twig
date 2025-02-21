@@ -1,0 +1,11 @@
+<img src="{{ absolute_url(asset('images/logo.png')) }}" alt="TheBrand Affidash" />
+
+<br /><br /><h1>{{ 'preuser.reset.email.hi'|trans }}</h1>
+
+<p><br />{{ 'preuser.reset.email.click'|trans }}</p>
+
+<br /><a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+
+<p>{{ 'preuser.reset.expiry'|trans }} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+
+<p><br />{{ 'preuser.reset.email.farewell'|trans }}</p>

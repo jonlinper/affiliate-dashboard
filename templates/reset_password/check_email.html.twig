@@ -1,0 +1,10 @@
+{% extends 'preuser.html.twig' %}
+
+{% block title %}{{ 'preuser.reset.title'|trans }}{% endblock %}
+
+{% block content %}
+    <p>{{ 'preuser.reset.sent'|trans }}</p>
+    <p>{{ 'preuser.reset.expiry'|trans }} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}. {{ 'preuser.reset.spam'|trans }}</p>
+
+    <div class="text-center mt-4 fw-light">{{ 'preuser.reset.retry.question'|trans }} <a href="{{ path('app_forgot_password_request') }}" class="text-primary">{{ 'preuser.reset.retry.send'|trans }}</a></div>
+{% endblock %}

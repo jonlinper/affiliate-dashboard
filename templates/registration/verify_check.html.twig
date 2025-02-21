@@ -1,0 +1,10 @@
+{% extends 'preuser.html.twig' %}
+
+{% block title %}{{ 'preuser.verify.title'|trans }}{% endblock %}
+
+{% block content %}
+    <p>{{ 'preuser.verify.sent'|trans }}</p>
+    <p>{{ 'preuser.verify.spam'|trans }}</p>
+
+    <div class="text-center mt-4 fw-light">{{ 'preuser.verify.retry.question'|trans }} <a href="{{ path('app_login') }}" class="text-primary">{{ 'preuser.verify.retry.send'|trans }}</a></div>
+{% endblock %}

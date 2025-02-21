@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-4 mx-auto">
+                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                            <div class="mb-4">
+                                <a href="{{ path('app_home') }}"><img src="{{ asset('images/logo.png') }}" alt="TheBrand Affidash" /></a>
+                            </div>
+
+                            {% block content %}{% endblock %}
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2 mb-2 text-center">
+                        <a class="btn btn-link" href="{{ path(app.request.get('_route'), {_locale: 'en'}) }}">English</a> |
+                        <a class="btn btn-link" href="{{ path(app.request.get('_route'), {_locale: 'es'}) }}">Español</a>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-scroller">
+        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+                <div class="me-3">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+                        <span class="icon-menu"></span>
+                    </button>
+                </div>
+                <div>
+                    <a class="navbar-brand brand-logo" href="{{ path('app_home') }}"><img src="{{ asset('images/logo.png') }}" alt="TheBrand Affidash" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="{{ path('app_home') }}">
+                        <img src="{{ asset('images/logo-mini.png') }}" alt="TheBrand Affidash" />
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-top">
+                <ul class="navbar-nav">
+                    <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+                        <h1 class="welcome-text">{{ 'dashboard.header.title'|trans }}, <span class="text-black fw-bold">{{ app.user.name }} ({{ app.user.slug }})</span></h1>
+                        <h3 class="welcome-sub-text">
+                            {% if app.user.isBanned %}
+                                <div class="badge badge-outline-danger">{{ 'dashboard.header.banned'|trans }}</div>
+                            {% else %}
+                                {{ 'dashboard.header.subtitle'|trans }}
+                            {% endif %}
+                        </h3>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    {% if is_granted('IS_IMPERSONATOR') %}
+                        <li class="nav-item">
+                            <a href="{{ impersonation_exit_path(path('app_dashboard_users') ) }}" class="btn btn-warning btn-icon-text btn-sm">
+                                <i class="ti-arrows-horizontal btn-icon-prepend"></i>
+                                {{ 'dashboard.header.adminagain'|trans }}
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item dropdown d-lg-block">
+                        <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="icon-globe"></i>
+                            {% if app.user.locale != 'es' %}
+                                EN
+                            {% else %}
+                                ES
+                            {% endif %}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                            <a href="{{ path('app_profile_locale', {locale: 'es'}) }}" class="dropdown-item"><i class="dropdown-item-icon mdi mdi-web text-primary me-2"></i> Español</a>
+                            <a href="{{ path('app_profile_locale', {locale: 'en'}) }}" class="dropdown-item"><i class="dropdown-item-icon mdi mdi-web text-primary me-2"></i> English</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown d-lg-block user-dropdown">
+                        <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="icon-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                            <div class="dropdown-header text-center">
+                                <p class="mb-1 mt-1 font-weight-semibold">{{ app.user.name }}</p>
+                                <p class="fw-light text-muted mb-0">{{ app.user.email }}</p>
+                            </div>
+                            <a href="{{ path('app_profile_edit') }}" class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> {{ 'dashboard.header.usermenu.profile'|trans }}</a>
+                            <a href="{{ path('app_logout') }}" class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>{{ 'dashboard.header.usermenu.logout'|trans }}</a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <div class="container-fluid page-body-wrapper">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item {% if page == 'index' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('app_dashboard') }}">
+                            <i class="mdi mdi-grid-large menu-icon"></i>
+                            <span class="menu-title">{{ 'dashboard.sidebar.index'|trans }}</span>
+                        </a>
+                    </li>
+
+                    {#<li class="nav-item nav-category">Analytics</li>#}
+                    <li class="nav-item {% if page == 'links' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('app_dashboard_links') }}">
+                            <i class="menu-icon mdi mdi-link-variant"></i>
+                            <span class="menu-title">{{ 'dashboard.sidebar.links'|trans }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if page == 'visits' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('app_dashboard_visits') }}">
+                            <i class="menu-icon mdi mdi-chart-line"></i>
+                            <span class="menu-title">{{ 'dashboard.sidebar.visits'|trans }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if page == 'sales' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('app_dashboard_sales') }}">
+                            <i class="menu-icon mdi mdi-percent"></i>
+                            <span class="menu-title">{{ 'dashboard.sidebar.sales'|trans }}</span>
+                        </a>
+                    </li>
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item {% if page == 'users' %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('app_dashboard_users') }}">
+                                <i class="menu-icon mdi mdi-account-multiple"></i>
+                                <span class="menu-title">{{ 'dashboard.sidebar.users'|trans }}</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+                <div class="need-help">
+                    <hr />
+                    <address class="text-secondary text-center">
+                        <p class="fw-bold">{{ 'dashboard.footer.help'|trans }}</p>
+                        <p><a href="mailto:affidash@thebrand.com" class="text-secondary">affidash@thebrand.com</a></p>
+                    </address>
+                </div>
+            </nav>
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

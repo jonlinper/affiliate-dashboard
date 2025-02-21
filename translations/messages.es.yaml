@@ -1,0 +1,192 @@
+Sign in: Iniciar sesión
+Create an account: Crear cuenta
+Your changes has been saved: Tus cambios han sido guardados
+
+User: Usuario
+Users: Usuarios
+
+Hello: Hola
+Get access to all information you need: Accede a toda la información que necesitas
+My Profile: Mi Perfil
+Sign Out: Cerrar Sesión
+Dashboard: Panel
+Analytics: Analítica
+Visits: Visitas
+Links: Enlaces
+Billing: Facturación
+Configuration: Configuración
+Settings: Ajustes
+Be Admin again: Volver a ser Admin
+Your account has been banned. Your sales won't be applied.: Tu cuenta ha sido baneada. Tus ventas no tendrán efecto.
+
+Performance: Productividad
+Last 5 Visits: Últimas 5 Visitas
+Your performance summary this month: Resumen de tu productividad este mes
+Your performance summary: Resumen de tu productividad
+Sales: Ventas
+Summary: Resumen
+Total Visits: Visitas Totales
+Visits per day: Visitas por Día
+Show more: Ver más
+Last 5 Sales: Últimas 5 Ventas
+Total Sales: Ventas Totales
+Sales per day: Ventas por Día
+
+Navigations over your links: Navegaciones a través de tus enlaces
+ID: ID
+Date: Fecha
+Referer: Referer
+Redirect-to: Redirigir-a
+Source: Source
+Medium: Medium
+
+All your available events: Todos tus eventos disponibles
+There is no available links: No hay enlaces disponibles
+
+\ID: \ID
+Slug: Slug
+Email: Email
+Name: Nombre
+Surname: Apellidos
+Country: País
+
+Account info: Información de la cuenta
+Personal info: Información personal
+Leave empty to not change: Dejar vacío para no cambiar
+ID / Passport: DNI / Passaporte
+Password: Contraseña
+Repeat Password: Repetir Contraseña
+Residence: Domicilio
+Address: Dirección
+City: Ciudad
+Update: Actualizar
+Change: Cambiar
+
+Conversions of your links: Conversiones de tus enlaces
+Reference: Referencia
+Purchased-on: Comprado-el
+Tickets: Entradas
+Venue: Recinto
+Event: Evento
+
+Change Password: Cambiar Contraseña
+Cancel: Cancelar
+Current Password: Actual Contraseña
+New Password: Nueva Contraseña
+Invalid current password: Contraseña actual incorrecta
+
+User details: Detalles del usuario
+Verified: Verificado
+Not verified: No verificado
+Pending: Pendiente
+Signup date: Fecha de registro
+Banned: Baneado
+Not banned: No baneado
+Status: Estado
+Ban user: Banear usuario
+Unban user: Desbanear usuario
+on: el
+by: por
+
+preuser:
+  verify:
+    title: Registro
+    sent: Te acabamos de enviar un correo electrónico con un link que debes clicar para verificar tu email.
+    spam: Por favor, comprueba tu carpeta de spam.
+    done:
+      success: Tu email ha sido verificado con éxito.
+      question: Listo para empezar?
+      login: Iniciar sesión
+    retry:
+      question: No has recibido ningún correo?
+      send: Enviar de nuevo
+    email:
+      subject: Affidash Thebrand - Verificar Correo
+      hi: Hola! Bienvenido al Programa de Embajadores de Thebrand.
+      click: Por favor clica el siguiente link para verificar tu correo.
+      link: VERIFICAR EMAIL
+      expiry: Este link expira en
+      farewell: Gracias!
+  reset:
+    title: Resetea tu contraseña
+    request:
+      enter: Introduce tu dirección de email y te enviaremos un enlace para resetear tu contraseña.
+      submit: CONTINUAR
+    sent: Si existe una cuenta con tu email, entonces se acaba de enviar un email que contiene un enlace que puedes usar para resetear tu contraseña.
+    expiry: Este link expira en
+    spam: Por favor, comprueba tu carpeta de spam.
+    success: Tu contraseña ha sido actualizada
+    retry:
+      question: No has recibido ningún correo?
+      send: Enviar de nuevo
+    register:
+      question: Todavía no tienes una cuenta?
+      create: Crear
+    email:
+      subject: Affidash Thebrand - Resetear contraseña
+      hi: Hola!
+      click: Para resetear tu contraseña, por favor clica en el siguiente enlace.
+      farewell: Gracias!
+    update:
+      enter: Introduce tu nueva contraseña para actualizar tu cuenta.
+      submit: ACTUALIZAR
+  login:
+    title: Iniciar sesión
+    hi: Hola! empecemos
+    tocontinue: Inicia sesión para continuar.
+    submit: INICIAR SESIÓN
+    remember: Recordar sesión
+    reset: Contraseña olvidada?
+    register:
+      question: Todavía no tienes una cuenta?
+      create: Crear
+    form:
+      email: Email
+      password: Contraseña
+  register:
+    title: Crear cuenta
+    hi: Hola! empecemos
+    tocontinue: Crea una cuenta para continuar.
+    terms: Aceptar Términos
+    submit: CREAR CUENTA
+    login:
+      question: Ya tienes una cuenta?
+      login: Iniciar sesión
+dashboard:
+  header:
+    title: Hola
+    subtitle: Accede a toda la información que necesitas
+    banned: Tu cuenta ha sido baneada. Tus ventas no tendrán efecto.
+    adminagain: Volver a ser Admin
+    usermenu:
+      profile: Mi Perfil
+      logout: Cerrar Sesión
+  footer:
+    help: Necesitas ayuda?
+  sidebar:
+    index: Panel
+    links: Enlaces
+    visits: Visitas
+    sales: Ventas
+    users: Usuarios
+  index:
+    summary:
+      today:
+        title: Hoy
+        visits: Visitas
+        sales: Ventas
+      total:
+        visits: Visitas Totales
+        sales: Ventas Totales
+      average:
+        visits: Visitas por Día
+        sales: Ventas por Día
+  links:
+    title: Enlaces
+    subtitle: Estos son tus enlaces disponibles, que puedes compartir con amigos y seguidores de redes sociales. Cuando alguién compre una entrada a través de tus enlaces, aparecerán en la sección "Ventas", incluyendo la comisión que has ganado.
+    empty: No hay enlaces disponibles
+profile:
+  edit:
+    success: Tus cambios han sido guardados
+
+link.copied: Copiado al portapapeles
